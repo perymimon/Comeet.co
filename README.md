@@ -19,6 +19,10 @@ in browser open `index.html`
 Use the OpenWeather JSON API and create a simple page to show which
 weather station has the most convenient weather in terms of temperature and humidity
 (the ideal is 21°C, 50%). Below the winning weather station, show the following leading ones.
+[orginal description](https://docs.google.com/document/d/1Lk-ViuVdzewKdglwY2tGvfdiYUbMIX18oFsyEYq1loA)
+
 
 --
 **note:** test & run on chrome only
+
+
