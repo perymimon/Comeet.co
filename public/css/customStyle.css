@@ -1,0 +1,21 @@
+h1 input{
+    width: 3em;
+    border:none;
+}
+
+h1 input:focus + span.input,
+h1 input,
+h1 .input-hover:hover span.input{
+    display: none;
+}
+
+
+h1 input:focus,
+h1 .input-hover span.input,
+h1 .input-hover:hover input{
+    display: inline;
+}
+
+fieldset .navbar-right{
+    float: right;
+}

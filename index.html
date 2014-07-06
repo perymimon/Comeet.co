@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="MainModule">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="public/lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="public/lib/bootstrap/dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="public/css/customStyle.css"/>
+    <!--develop-->
+    <script src="public/lib/angular/angular.js"></script>
+
+    <!--production-->
+    <!--<script src="public/lib/angular/angular.min.js"></script>-->
+    <title>where is best place to be</title>
+</head>
+<body ng-controller="mainController" class="jumbotron">
+    <h1>
+        where is the best place in the worlds to be right now
+        <br/>
+        <small>
+            whole worlds, from
+            <span class="">
+                <span>latitude</span>
+
+                <span class="input-hover">
+                    <input class="input" ng-model="quary.latitude_min" min="0" max="360" type="number"/>
+                    <span class="input">{{ quary.latitude_min }}</span>
+                </span> to
+                <span class="input-hover">
+                    <input class="input" ng-model="quary.latitude_max"  min="0" max="360" type="number"/>
+                    <span class="input">{{ quary.latitude_max }}</span>
+                </span>
+            </span> and
+            <br/>
+            <span class="">
+                <span>longitude</span>
+                <span class="input-hover">
+                    <input class="input" ng-model="quary.longitude_min"  min="0" max="360" type="number"/>
+                    <span class="input">{{ quary.longitude_min }}</span>
+                </span> to
+                <span class="input-hover">
+                    <input class="input" ng-model="quary.longitude_max"  min="0" max="360" type="number"/>
+                    <span class="input">{{ quary.longitude_max }}</span>
+                </span>
+
+            </span>
+        </small>
+    </h1>
+
+    <fieldset class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="nav ">
+                <span class="navbar-text">optimal for</span>
+                <span class="btn-group">
+                    <label class="btn btn-default"><input value="male" ng-model="state.gender" type="radio"/> male</label>
+                    <label class="btn btn-default"><input value="female" ng-model="state.gender" type="radio"/> female</label>
+                </span>
+            </div>
+        </div>
+            <span class="label label-info navbar-right">
+                <span>humidity: {{ optimal[state.gender].humidity }}%</span>
+                <span>temperature: {{ optimal[state.gender].temperature }}°C</span>
+            </span>
+    </fieldset>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Best Places in descending order
+            <span class="pull-right">update in {{ state.timeToNextUpdate }} sec</span>
+
+        </div>
+        <ul class=" panel-body">
+            <li class="list-group-item thumbnail" ng-repeat="station in stations | orderBy:order |limitTo:state.limitResult">
+                <span class="pull-right" ng-show="$first">
+                    <span class="glyphicon glyphicon-ok" ></span>
+                    best place
+                </span>
+                <b>{{ station.name }}</b><br/>
+                humidity : <span>{{ station.humidity }}%</span><br/>
+                temperature : <span>{{ station.temperature }} °C</span><br/>
+                distance form optimal :<span>{{ station.optimalDistance[state.gender] }}</span>
+
+            </li>
+        </ul>
+        <div class="pager">
+            <a class="button" href="" ng-click="showMore()">show me more</a>
+        </div>
+    </div>
+    <script src="public/javascript/module.main.js"></script>
+    <script src="public/javascript/main.service.weather.js"></script>
+    <script src="public/javascript/main.service.manger.js"></script>
+    <script src="public/javascript/main.filter.celsius.js"></script>
+</body>
+</html>

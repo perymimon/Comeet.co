@@ -1,0 +1,29 @@
+{
+  "name": "Comeet.co",
+  "version": "0.0.0",
+  "authors": [
+    "perymimon <pery.mimon@gmail.com>"
+  ],
+  "description": "commeet.co test",
+  "main": "index.html",
+  "keywords": [
+    "commeet.co",
+    "test",
+    "pery mimon"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.19"
+  }
+}
