@@ -7,6 +7,7 @@ MainModule.factory('Manger', ['WeatherService','$q',function (WeatherService, $q
         optimals
         ;
 
+    /* use `openWeather` service to get weather from all stations in Boundaries */
     function requestStationsByBBox(quary) {
         var deferred = $q.defer()
             ;
@@ -25,7 +26,9 @@ MainModule.factory('Manger', ['WeatherService','$q',function (WeatherService, $q
 
         return deferred.promise;
     }
-
+    /*
+    * covert the data that get from `openWeather` to simple objects for continue using
+    * */
     function simplifyLocations() {
         simpleStations = stations.map(function (station, index) {
             if(station.main) {
@@ -43,6 +46,11 @@ MainModule.factory('Manger', ['WeatherService','$q',function (WeatherService, $q
         });
     }
 
+    /*
+    * use Pythagorean equation to calculate the distance from optimal points
+    * and add that values to Simple Station model;
+    * High value is bad
+    * */
     function calculateOptimalMeasurement(optimals) {
         var power = Math.pow,
             optimalMaleTemperaure = optimals.male.temperature,
