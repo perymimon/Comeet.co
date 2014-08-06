@@ -1,5 +1,5 @@
 # Comeet.co test
-### server: no server ( in passive depend on NodeJS to install `bower` )
+### server: no server ( it passive depend on NodeJS to install `bower` )
 ### client: use [angular](https://angularjs.org/) with [bootstrap 3.2](http://getbootstrap.com/)
 
 #### this project download and install it's dependencies automatically by `npm` and `bower`
